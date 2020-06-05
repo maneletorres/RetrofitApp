@@ -32,13 +32,15 @@ public class MainActivity extends AppCompatActivity {
 
         mTextViewResult = findViewById(R.id.text_view_result);
 
+        // Allows nulls to be sent to the RESTful service when the corresponding request is
+        // executed.
         Gson gson = new GsonBuilder().serializeNulls().create();
-
-        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         // Adds to Retrofit the appearance of log information after executing a request
         // such as the BODY or the HEADERS.
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
                 .build();
