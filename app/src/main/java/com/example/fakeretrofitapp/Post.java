@@ -7,7 +7,7 @@ public class Post {
     private int userId;
 
     @SerializedName("id")
-    private int id;
+    private Integer id;
 
     @SerializedName("title")
     private String title;
@@ -15,11 +15,17 @@ public class Post {
     @SerializedName("body")
     private String body;
 
+    public Post(int userId, String title, String body) {
+        this.userId = userId;
+        this.title = title;
+        this.body = body;
+    }
+
     public int getUserId() {
         return userId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
